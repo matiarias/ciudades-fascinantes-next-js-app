@@ -11,6 +11,9 @@ export default function Home() {
       </Head>
 
       <h1 className={styles.title}>Hola Mundo!</h1>
+      <p className={styles.paragraph}>
+        Esta es mi primer aplicación con Next.js
+      </p>
     </div>
   );
 }

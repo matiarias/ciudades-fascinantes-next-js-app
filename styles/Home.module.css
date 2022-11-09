@@ -4,10 +4,16 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
 }
 
 .title {
   font-size: 3rem;
-  color: #0033ff;
+  color: #0a33da;
+  font-weight: 700;
+}
+
+.paragraph {
+  color: #1f703a;
+  font-size: 2rem;
+  font-weight: 500;
 }
