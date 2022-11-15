@@ -1,5 +1,6 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import Share from "../components/Share";
 
 export default function Home() {
   return (
@@ -14,6 +15,8 @@ export default function Home() {
       <p className={styles.paragraph}>
         Esta es mi primer aplicación con Next.js
       </p>
+
+      <Share />
     </div>
   );
 }
