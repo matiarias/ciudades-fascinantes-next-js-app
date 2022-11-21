@@ -1,6 +1,6 @@
 import Head from "next/head";
+import NavBar from "../components/navbar/NavBar";
 import styles from "../styles/Home.module.css";
-import Share from "../components/Share";
 
 export default function Home() {
   return (
@@ -11,12 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className={styles.title}>Hola Mundo!</h1>
-      <p className={styles.paragraph}>
-        Esta es mi primer aplicación con Next.js
-      </p>
-
-      <Share />
+      <NavBar />
     </div>
   );
 }

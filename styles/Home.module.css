@@ -1,19 +1,4 @@
 .container {
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.title {
-  font-size: 3rem;
-  color: #0a33da;
-  font-weight: 700;
-}
-
-.paragraph {
-  color: #1f703a;
-  font-size: 2rem;
-  font-weight: 500;
 }
