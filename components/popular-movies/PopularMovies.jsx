@@ -6,13 +6,17 @@ import Movie3 from "../../public/assets/jurassic-world-dominion.jpg";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const PopularMovies = () => {
   return (
     <section>
       <Container maxWidth="lg">
-        <h2>Popular</h2>
-        <Grid container spacing={1}>
+        <Typography variant="h4" gutterBottom>
+          Popular
+        </Typography>
+
+        <Grid container spacing={{ xs: 2, sm: 3, md: 1 }}>
           <Grid item xs={12} sm={6} md={4}>
             <Box sx={{ heght: 300, width: 300 }}>
               <Image

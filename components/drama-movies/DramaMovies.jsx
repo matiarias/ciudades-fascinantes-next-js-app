@@ -6,12 +6,16 @@ import Movie3 from "../../public/assets/dunkerque.jpg";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
 
 const DramaMovies = () => {
   return (
     <section>
       <Container maxWidth="lg">
-        <h2>Drama</h2>
+        <Typography variant="h4" my={2}>
+          Drama
+        </Typography>
+
         <Grid container spacing={1}>
           <Grid item xs={12} sm={6} md={4}>
             <Box sx={{ heght: 300, width: 300 }}>
