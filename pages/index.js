@@ -1,7 +1,10 @@
 import Head from "next/head";
-import Footer from "../components/footer/Footer";
-import NavBar from "../components/navbar/NavBar";
 import styles from "../styles/Home.module.css";
+import NavBar from "../components/navbar/NavBar";
+import Footer from "../components/footer/Footer";
+import PopularMovies from "../components/popular-movies/PopularMovies";
+import TerrorMovies from "../components/terror-movies/TerrorMovies";
+import DramaMovies from "../components/drama-movies/DramaMovies";
 
 export default function Home() {
   return (
@@ -13,6 +16,11 @@ export default function Home() {
       </Head>
 
       <NavBar />
+      <div className={styles.section__container}>
+        <PopularMovies />
+        <TerrorMovies />
+        <DramaMovies />
+      </div>
       <Footer />
     </div>
   );
