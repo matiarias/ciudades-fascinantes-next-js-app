@@ -1,11 +1,11 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-import NavBar from "../components/NavBar/NavBar";
-import Footer from "../components/Footer/Footer";
 import PopularMovies from "../components/PopularMovies/PopularMovies";
 import TerrorMovies from "../components/TerrorMovies/TerrorMovies";
 import DramaMovies from "../components/DramaMovies/DramaMovies";
+import NavBar from "../components/navbar/NavBar";
+import Footer from "../components/footer/Footer";
 
 export default function Home() {
   return (
@@ -17,13 +17,11 @@ export default function Home() {
       </Head>
 
       <NavBar />
-
       <main className={styles.section__container}>
         <PopularMovies />
         <TerrorMovies />
         <DramaMovies />
       </main>
-
       <Footer />
     </div>
   );
