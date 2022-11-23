@@ -21,6 +21,9 @@ const DramaMovies = () => {
                 src={Movie1}
                 alt="cinema paradiso"
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>
@@ -32,6 +35,9 @@ const DramaMovies = () => {
                 src={Movie2}
                 alt="sin novedad en el frente"
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>
@@ -43,6 +49,9 @@ const DramaMovies = () => {
                 src={Movie3}
                 alt="dunkerque"
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>

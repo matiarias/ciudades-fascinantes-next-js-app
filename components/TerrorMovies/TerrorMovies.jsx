@@ -20,6 +20,9 @@ const TerrorMovies = () => {
                 src={Movie1}
                 alt="smile movie"
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>
@@ -31,6 +34,9 @@ const TerrorMovies = () => {
                 src={Movie2}
                 alt="halloween el final"
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>
@@ -42,6 +48,9 @@ const TerrorMovies = () => {
                 src={Movie3}
                 alt="black phone"
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>

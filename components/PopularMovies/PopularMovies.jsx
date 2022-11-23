@@ -22,6 +22,9 @@ const PopularMovies = () => {
                 alt="top gun maverick"
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>
@@ -33,6 +36,9 @@ const PopularMovies = () => {
                 src={Movie2}
                 alt="enola holmes"
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>
@@ -50,6 +56,9 @@ const PopularMovies = () => {
                 src={Movie3}
                 alt="jurassic world dominion"
                 fill
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
             </Box>
           </Grid>
