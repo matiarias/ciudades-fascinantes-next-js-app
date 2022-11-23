@@ -3,10 +3,7 @@ import Movie1 from "../../public/assets/cinema-paradiso.jpg";
 import Movie2 from "../../public/assets/sin_novedad_en_el_frente.jpg";
 import Movie3 from "../../public/assets/dunkerque.jpg";
 
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
+import { Container, Grid, Box, Typography } from "@mui/material";
 
 const DramaMovies = () => {
   return (
@@ -18,37 +15,34 @@ const DramaMovies = () => {
 
         <Grid container spacing={1}>
           <Grid item xs={12} sm={6} md={4}>
-            <Box sx={{ heght: 300, width: 300 }}>
+            <Box sx={{ height: 300, width: 300, position: "relative" }}>
               <Image
+                style={{ objectFit: "contain" }}
                 src={Movie1}
-                alt="top gun maverick"
-                width={300}
-                height={300}
-                objectFit="cover"
+                alt="cinema paradiso"
+                fill
               />
             </Box>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Box sx={{ heght: 300, width: 300 }}>
+            <Box sx={{ height: 300, width: 300, position: "relative" }}>
               <Image
+                style={{ objectFit: "contain" }}
                 src={Movie2}
-                alt="enola holmes"
-                width={300}
-                height={300}
-                objectFit="cover"
+                alt="sin novedad en el frente"
+                fill
               />
             </Box>
           </Grid>
 
           <Grid item xs={12} sm={6} md={4}>
-            <Box sx={{ heght: 300, width: 300 }}>
+            <Box sx={{ height: 300, width: 300, position: "relative" }}>
               <Image
+                style={{ objectFit: "contain" }}
                 src={Movie3}
-                alt="jurassic world dominion"
-                width={300}
-                height={300}
-                objectFit="cover"
+                alt="dunkerque"
+                fill
               />
             </Box>
           </Grid>
