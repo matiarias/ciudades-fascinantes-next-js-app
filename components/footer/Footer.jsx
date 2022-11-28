@@ -21,7 +21,7 @@ const Footer = () => {
               gap: "12px",
             }}
           >
-            <Typography variant="h6" component="div">
+            <Typography variant="body1" component="div">
               Creado por Matias Arias
             </Typography>
 
