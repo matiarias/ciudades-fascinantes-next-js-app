@@ -1,7 +1,5 @@
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import { AppBar, Box, Toolbar, Typography } from "@mui/material";
+
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
@@ -11,13 +9,17 @@ const Footer = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           sx={{
-            position: "sticky",
-            bottom: "0",
+            position: "static",
+            bottom: 0,
             background: "linear-gradient(to right, #001100, #00130e)",
           }}
         >
           <Toolbar
-            sx={{ justifyContent: "center", alignItems: "center", gap: "12px" }}
+            sx={{
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "12px",
+            }}
           >
             <Typography variant="h6" component="div">
               Creado por Matias Arias
