@@ -13,7 +13,7 @@ const Footer = () => {
           sx={{
             position: "sticky",
             bottom: "0",
-            background: "linear-gradient(to right, #430059, #090075)",
+            background: "linear-gradient(to right, #001100, #00130e)",
           }}
         >
           <Toolbar
