@@ -8,7 +8,7 @@ export const dataGaleriaImg = [
     title: "Londres",
   },
   {
-    img: "https://images.pexels.com/photos/674736/pexels-photo-674736.jpeg",
+    img: "https://images.pexels.com/photos/819767/pexels-photo-819767.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     title: "Barcelona",
   },
   {

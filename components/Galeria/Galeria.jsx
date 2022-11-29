@@ -3,6 +3,7 @@ import { dataGaleriaImg } from "../../utils/dataGaleria";
 import Container from "@mui/material/Container";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { Typography } from "@mui/material";
 
 const Galeria = () => {
@@ -32,6 +33,8 @@ const Galeria = () => {
                 loading="lazy"
                 style={{ objetctFit: "cover" }}
               />
+
+              <ImageListItemBar title={item.title} />
             </ImageListItem>
           ))}
         </ImageList>
