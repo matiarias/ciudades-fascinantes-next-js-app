@@ -10,7 +10,7 @@ const NavBar = () => {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
           position="static"
-          sx={{ background: "linear-gradient(to right, #002311, #003703)" }}
+          sx={{ background: "linear-gradient(to right, #002311, #003713)" }}
         >
           <Toolbar>
             <IconButton

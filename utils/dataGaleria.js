@@ -13,7 +13,7 @@ export const dataGaleriaImg = [
   },
   {
     img: "https://images.pexels.com/photos/4833770/pexels-photo-4833770.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    title: "madrid",
+    title: "Madrid",
   },
   {
     img: "https://images.pexels.com/photos/1534560/pexels-photo-1534560.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

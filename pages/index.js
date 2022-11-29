@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 import Hero from "../components/hero/Hero";
+import InfoCards from "../components/InfoCards/InfoCards";
 import Galeria from "../components/Galeria/Galeria";
 import Footer from "../components/footer/Footer";
 
@@ -16,8 +17,10 @@ export default function Home() {
 
       <main>
         <Hero />
+        <InfoCards />
         <Galeria />
       </main>
+
       <Footer />
     </div>
   );

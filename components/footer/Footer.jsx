@@ -30,7 +30,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <GitHubIcon fontSize="large" />
+              <GitHubIcon fontSize="large" sx={{ color: "white" }} />
             </a>
 
             <a
@@ -38,7 +38,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <LinkedInIcon fontSize="large" />
+              <LinkedInIcon fontSize="large" sx={{ color: "white" }} />
             </a>
           </Toolbar>
         </AppBar>

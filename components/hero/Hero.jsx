@@ -30,11 +30,19 @@ const Hero = () => {
             paddingX: "16px",
           }}
         >
-          <Typography variant="h3" sx={{ fontWeight: "700" }} align="center">
+          <Typography
+            variant="h3"
+            sx={{ color: "#ebebeb", fontWeight: "700" }}
+            align="center"
+          >
             Ciudades Fascinantes
           </Typography>
 
-          <Typography variant="h5" sx={{ fontWeight: "600" }} align="center">
+          <Typography
+            variant="h5"
+            sx={{ color: "#ebebeb", fontWeight: "600" }}
+            align="center"
+          >
             Explora las Ciudades más increibles del mundo!
           </Typography>
         </Box>
