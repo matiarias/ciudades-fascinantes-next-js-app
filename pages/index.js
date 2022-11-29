@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
-import Hero from "../components/Hero/Hero";
+import Hero from "../components/hero/Hero";
 import InfoCards from "../components/InfoCards/InfoCards";
 import Gallery from "../components/Gallery/Gallery";
 import Footer from "../components/footer/Footer";
