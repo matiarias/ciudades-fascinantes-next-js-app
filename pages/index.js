@@ -2,9 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
 import Hero from "../components/hero/Hero";
-import PopularMovies from "../components/PopularMovies/PopularMovies";
-import TerrorMovies from "../components/TerrorMovies/TerrorMovies";
-import DramaMovies from "../components/DramaMovies/DramaMovies";
+import Galeria from "../components/Galeria/Galeria";
 import Footer from "../components/footer/Footer";
 
 export default function Home() {
@@ -18,9 +16,7 @@ export default function Home() {
 
       <main>
         <Hero />
-        <PopularMovies />
-        <TerrorMovies />
-        <DramaMovies />
+        <Galeria />
       </main>
       <Footer />
     </div>
