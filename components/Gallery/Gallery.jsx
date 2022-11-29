@@ -6,7 +6,7 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import { Typography } from "@mui/material";
 
-const Galeria = () => {
+const Gallery = () => {
   return (
     <section style={{ height: "100%", width: "100%" }}>
       <Container maxWidth="xl">
@@ -43,4 +43,4 @@ const Galeria = () => {
   );
 };
 
-export default Galeria;
+export default Gallery;
