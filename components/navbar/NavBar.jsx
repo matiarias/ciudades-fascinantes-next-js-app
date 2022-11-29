@@ -2,7 +2,7 @@
 
 import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
 
-import MovieFilterIcon from "@mui/icons-material/MovieFilter";
+import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
 
 const NavBar = () => {
   return (
@@ -20,10 +20,10 @@ const NavBar = () => {
               aria-label="menu"
               sx={{ mr: 2 }}
             >
-              <MovieFilterIcon fontSize="large" />
+              <AirplanemodeActiveIcon fontSize="large" />
             </IconButton>
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-              PelisSJ
+            <Typography variant="h5" component="div" sx={{ fontWeight: "700" }}>
+              Ciudades Fascinantes
             </Typography>
           </Toolbar>
         </AppBar>
