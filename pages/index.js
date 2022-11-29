@@ -1,10 +1,11 @@
-import Head from "next/head"
-import styles from "../styles/Home.module.css"
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
 
-import PopularMovies from "../components/PopularMovies/PopularMovies"
-import TerrorMovies from "../components/TerrorMovies/TerrorMovies"
-import DramaMovies from "../components/DramaMovies/DramaMovies"
-import Footer from "../components/footer/Footer"
+import Hero from "../components/hero/Hero";
+import PopularMovies from "../components/PopularMovies/PopularMovies";
+import TerrorMovies from "../components/TerrorMovies/TerrorMovies";
+import DramaMovies from "../components/DramaMovies/DramaMovies";
+import Footer from "../components/footer/Footer";
 
 export default function Home() {
   return (
@@ -15,12 +16,13 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.section__container}>
+      <main>
+        <Hero />
         <PopularMovies />
         <TerrorMovies />
         <DramaMovies />
       </main>
       <Footer />
     </div>
-  )
+  );
 }
