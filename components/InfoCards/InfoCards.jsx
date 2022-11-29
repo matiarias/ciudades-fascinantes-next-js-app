@@ -16,7 +16,7 @@ const InfoCards = () => {
         <Typography
           variant="h4"
           align="center"
-          sx={{ marginY: "16px", fontWeight: "700" }}
+          sx={{ marginY: "24px", fontWeight: "700" }}
         >
           Explora sobre las Mejores Ciudades del Mundo
         </Typography>
