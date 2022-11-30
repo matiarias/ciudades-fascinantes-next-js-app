@@ -1,12 +1,19 @@
 import { dataGaleriaImg } from "../../utils/dataGaleria";
 
-import Container from "@mui/material/Container";
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-import ImageListItemBar from "@mui/material/ImageListItemBar";
-import { Typography } from "@mui/material";
+import Image from "next/image";
+
+import {
+  Container,
+  ImageList,
+  ImageListItem,
+  ImageListItemBar,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 
 const Gallery = () => {
+  const breakpoint = useMediaQuery("(min-width:600px)");
+
   return (
     <section style={{ height: "100%", width: "100%" }}>
       <Container maxWidth="xl">
@@ -19,19 +26,22 @@ const Gallery = () => {
         </Typography>
 
         <ImageList
-          sx={{ width: "100%", height: "100%" }}
-          cols={3}
+          sx={{
+            position: "relative",
+            width: "100%",
+            height: "1000px",
+          }}
+          cols={breakpoint ? 3 : 2}
           rowHeight="auto"
           gap={12}
         >
           {dataGaleriaImg.map((item, index) => (
             <ImageListItem key={index} sx={{ height: "500px", width: "100%" }}>
-              <img
-                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+              <Image
+                src={item.img}
                 alt={item.title}
-                loading="lazy"
-                style={{ objetctFit: "cover" }}
+                fill
+                style={{ objectFit: "cover" }}
               />
 
               <ImageListItemBar title={item.title} />
