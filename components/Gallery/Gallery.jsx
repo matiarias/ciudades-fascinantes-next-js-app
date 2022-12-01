@@ -16,7 +16,7 @@ const Gallery = () => {
 
   return (
     <section style={{ height: "100%", width: "100%" }}>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Typography
           variant="h4"
           align="center"

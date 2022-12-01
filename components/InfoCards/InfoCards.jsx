@@ -12,7 +12,7 @@ import {
 const InfoCards = () => {
   return (
     <section>
-      <Container maxWidth="xl">
+      <Container maxWidth="lg">
         <Typography
           variant="h4"
           align="center"
