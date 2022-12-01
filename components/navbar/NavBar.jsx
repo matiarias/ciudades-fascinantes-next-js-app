@@ -1,28 +1,28 @@
-// import styles from "./NavBar.module.css";
-
-import { Box, AppBar, Toolbar, Typography, IconButton } from "@mui/material";
-
-import AirplanemodeActiveIcon from "@mui/icons-material/AirplanemodeActive";
+import { Box, AppBar, Toolbar, Typography } from "@mui/material";
+import navbarImg from "../../public/navbar-image-2.png";
+import Image from "next/image";
 
 const NavBar = () => {
   return (
     <header>
       <Box sx={{ flexGrow: 1 }}>
         <AppBar
-          position="static"
-          sx={{ background: "linear-gradient(to right, #002311, #003713)" }}
+          position="fixed"
+          sx={{
+            background: "transparent",
+            backdropFilter: "blur(15px)",
+          }}
         >
-          <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-            >
-              <AirplanemodeActiveIcon fontSize="large" />
-            </IconButton>
-            <Typography variant="h5" component="div" sx={{ fontWeight: "700" }}>
+          <Toolbar sx={{ height: "80px", gap: "12px" }}>
+            <Image
+              src={navbarImg}
+              alt="navbar image viajes"
+              height={60}
+              width={60}
+              style={{ objectFit: "cover" }}
+            />
+
+            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
               Ciudades Fascinantes
             </Typography>
           </Toolbar>
