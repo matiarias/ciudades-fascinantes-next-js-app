@@ -28,7 +28,7 @@ const Gallery = () => {
   const breakpoint = useMediaQuery("(min-width:600px)");
 
   return (
-    <section style={{ height: "100%", width: "100%" }}>
+    <section style={{ height: "100%", width: "100%", paddingBottom: "20px" }}>
       <Container maxWidth="lg">
         <Typography
           variant="h4"
