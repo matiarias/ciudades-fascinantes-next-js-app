@@ -14,13 +14,13 @@ import {
 } from "@mui/material";
 
 const Gallery = () => {
-  const [data, setData] = useState([]);
+  const [galleryData, setGalleryData] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setData(dataGallery);
+      setGalleryData(dataGallery);
       setIsLoading(false);
     }, 3000);
   }, []);
@@ -53,7 +53,7 @@ const Gallery = () => {
             rowHeight="auto"
             gap={12}
           >
-            {data.map((item, index) => (
+            {galleryData.map((item, index) => (
               <ImageListItem
                 key={index}
                 sx={{ height: "500px", width: "100%" }}

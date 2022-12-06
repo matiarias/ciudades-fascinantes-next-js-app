@@ -2,26 +2,24 @@ import { useEffect, useState } from "react";
 
 import dataCards from "../../utils/dataCards.json";
 
+import { Cards } from "../cards/Cards";
+
 import {
   Container,
   Grid,
   Box,
-  Card,
-  CardContent,
-  CardMedia,
   Typography,
-  CardActionArea,
   CircularProgress,
 } from "@mui/material";
 
 const InfoCards = () => {
-  const [data, setData] = useState([]);
+  const [cardsData, setCardsData] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
-      setData(dataCards);
+      setCardsData(dataCards);
       setIsLoading(false);
     }, 3000);
   }, []);
@@ -49,27 +47,8 @@ const InfoCards = () => {
               columns={{ xs: 12, sm: 4, md: 4 }}
               sx={{ justifyContent: "center", alignItems: "center" }}
             >
-              {data.map((item, index) => (
-                <Grid key={index} item>
-                  <Card sx={{ maxWidth: 350 }}>
-                    <CardActionArea>
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image={item.img}
-                        alt={item.title}
-                      />
-                      <CardContent sx={{ background: "#555", color: "white" }}>
-                        <Typography gutterBottom variant="h5" component="div">
-                          {item.title}
-                        </Typography>
-                        <Typography variant="body2">
-                          {item.description}
-                        </Typography>
-                      </CardContent>
-                    </CardActionArea>
-                  </Card>
-                </Grid>
+              {cardsData.map((card) => (
+                <Cards key={card.title} card={card} />
               ))}
             </Grid>
           </Box>
