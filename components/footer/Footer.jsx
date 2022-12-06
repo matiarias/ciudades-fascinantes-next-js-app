@@ -3,6 +3,7 @@ import SvgHeart from "../../public/heart.svg";
 import {
   AppBar,
   Box,
+  Stack,
   Toolbar,
   Typography,
   IconButton,
@@ -36,13 +37,11 @@ const Footer = () => {
               Creado por Matias Arias
             </Typography>
 
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                gap: "20px",
-              }}
+            <Stack
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+              spacing={2}
             >
               <a
                 href="https://github.com/matiarias"
@@ -59,7 +58,7 @@ const Footer = () => {
               >
                 <LinkedInIcon fontSize="large" sx={{ color: "white" }} />
               </a>
-            </Box>
+            </Stack>
           </Toolbar>
         </AppBar>
       </Box>
