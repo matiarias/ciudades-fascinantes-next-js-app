@@ -31,15 +31,13 @@ export default function Home({ dataGallery }) {
 }
 
 export async function getServerSideProps() {
-  const resp = await fetch(
-    `https://api.unsplash.com/search/photos/?client_id=${process.env.NEXT_PUBLIC_UNSPLASH_API_KEY}&orientation=landscape&query=ciudad&per_page=15`
+  const resp = await axios.get(
+    `https://api.unsplash.com/search/photos/?client_id=${process.env.NEXT_PUBLIC_UNSPLASH_API_KEY}&orientation=landscape&query=ciudades&per_page=15`
   );
-
-  const data = await resp.json();
 
   return {
     props: {
-      dataGallery: data.results,
+      dataGallery: resp.data.results,
     },
   };
 }

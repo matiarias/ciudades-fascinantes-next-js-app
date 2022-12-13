@@ -60,7 +60,7 @@ const Gallery = ({ dataGallery }) => {
                 style={{ objectFit: "cover" }}
               />
 
-              <ImageListItemBar title={item.tags[1].title} />
+              {/* <ImageListItemBar title={item.tags[1].title} /> */}
             </ImageListItem>
           ))}
         </ImageList>
