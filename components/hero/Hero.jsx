@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import Typewriter from "typewriter-effect";
 
 import Image from "next/image";
 
@@ -35,7 +36,13 @@ const Hero = () => {
             sx={{ color: "#ebebeb", fontWeight: "700" }}
             align="center"
           >
-            Ciudades Fascinantes
+            <Typewriter
+              options={{
+                strings: ["Ciudades Fascinantes"],
+                autoStart: true,
+                loop: true,
+              }}
+            />
           </Typography>
 
           <Typography
