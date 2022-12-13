@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import dataGallery from "../../utils/dataGaleria.json";
+// import dataGallery from "../../utils/dataGaleria.json";
 
 import {
   Container,
@@ -13,17 +13,17 @@ import {
   CircularProgress,
 } from "@mui/material";
 
-const Gallery = () => {
-  const [galleryData, setGalleryData] = useState([]);
+const Gallery = ({ dataGallery }) => {
+  // const [galleryData, setGalleryData] = useState([]);
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setGalleryData(dataGallery);
-      setIsLoading(false);
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setGalleryData(dataGallery);
+  //     setIsLoading(false);
+  //   }, 3000);
+  // }, []);
 
   const breakpoint = useMediaQuery("(min-width:600px)");
 
@@ -38,38 +38,32 @@ const Gallery = () => {
           Galeria
         </Typography>
 
-        {isLoading ? (
-          <Box sx={{ textAlign: "center", marginY: "20px" }}>
-            <CircularProgress color="success" size={60} thickness={6} />
-          </Box>
-        ) : (
-          <ImageList
-            sx={{
-              position: "relative",
-              width: "100%",
-              height: "1000px",
-            }}
-            cols={breakpoint ? 3 : 2}
-            rowHeight="auto"
-            gap={12}
-          >
-            {galleryData.map((item, index) => (
-              <ImageListItem
-                key={index}
-                sx={{ height: "500px", width: "100%" }}
-              >
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  fill
-                  style={{ objectFit: "cover" }}
-                />
+        <ImageList
+          sx={{
+            position: "relative",
+            width: "100%",
+            height: "1000px",
+          }}
+          cols={breakpoint ? 3 : 2}
+          rowHeight="auto"
+          gap={12}
+        >
+          {dataGallery.map((item) => (
+            <ImageListItem
+              key={item.id}
+              sx={{ height: "500px", width: "100%" }}
+            >
+              <Image
+                src={item.urls.small}
+                alt={item.tags[1].title}
+                fill
+                style={{ objectFit: "cover" }}
+              />
 
-                <ImageListItemBar title={item.title} />
-              </ImageListItem>
-            ))}
-          </ImageList>
-        )}
+              <ImageListItemBar title={item.tags[1].title} />
+            </ImageListItem>
+          ))}
+        </ImageList>
       </Container>
     </section>
   );

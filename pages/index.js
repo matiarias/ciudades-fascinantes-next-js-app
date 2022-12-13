@@ -1,12 +1,16 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 
+import axios from "axios";
+
 import Hero from "../components/hero/Hero";
 import InfoCards from "../components/InfoCards/InfoCards";
 import Gallery from "../components/Gallery/Gallery";
 import Footer from "../components/footer/Footer";
 
-export default function Home() {
+export default function Home({ dataGallery }) {
+  console.log(dataGallery);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -18,10 +22,24 @@ export default function Home() {
       <main>
         <Hero />
         <InfoCards />
-        <Gallery />
+        <Gallery dataGallery={dataGallery} />
       </main>
 
       <Footer />
     </div>
   );
+}
+
+export async function getServerSideProps() {
+  const resp = await fetch(
+    `https://api.unsplash.com/search/photos/?client_id=${process.env.NEXT_PUBLIC_UNSPLASH_API_KEY}&orientation=landscape&query=ciudad&per_page=15`
+  );
+
+  const data = await resp.json();
+
+  return {
+    props: {
+      dataGallery: data.results,
+    },
+  };
 }
