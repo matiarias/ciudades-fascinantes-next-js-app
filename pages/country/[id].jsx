@@ -5,7 +5,17 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Box, Typography, CircularProgress, Button } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  CircularProgress,
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  CardActions,
+} from "@mui/material";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const CardId = () => {
@@ -32,7 +42,7 @@ const CardId = () => {
 
   useEffect(() => {
     fetchCountry();
-  }, []);
+  }, [params.id]);
 
   return (
     <>
@@ -85,14 +95,137 @@ const CardId = () => {
                   left: "20px",
                   backgroundColor: "#cecece",
                   color: "black",
+                  boxShadow: "2px 2px 4px #ababab",
                   "&:hover": {
                     backgroundColor: "#7a7a7a",
+                    boxShadow: "2px 2px 4px #cecece",
                   },
                 }}
               >
                 Inicio
               </Button>
             </Link>
+
+            <Card
+              sx={{
+                maxWidth: 500,
+                padding: "16px 8px",
+                backgroundColor: "rgba(250,250,250,0.8)",
+              }}
+            >
+              <CardMedia
+                component="img"
+                height="150"
+                image={country[0]?.coatOfArms.png}
+                alt={country[0]?.name.official}
+                sx={{ objectFit: "contain" }}
+              />
+              <CardContent>
+                <Stack
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="center"
+                  spacing={1}
+                >
+                  <Typography
+                    variant="h5"
+                    align="center"
+                    sx={{ fontWeight: "bold" }}
+                  >
+                    {country[0]?.name.official}
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    align="center"
+                    sx={{ color: "#333", fontWeight: "bold" }}
+                  >
+                    Capital:{" "}
+                    <Box
+                      component="span"
+                      sx={{ color: "darkgreen", fontWeight: "bold" }}
+                    >
+                      {country[0]?.capital}
+                    </Box>
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    align="center"
+                    sx={{ color: "#333", fontWeight: "bold" }}
+                  >
+                    Región:{" "}
+                    <Box
+                      component="span"
+                      sx={{ color: "darkgreen", fontWeight: "bold" }}
+                    >
+                      {country[0]?.region}
+                    </Box>
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    align="center"
+                    sx={{ color: "#333", fontWeight: "bold" }}
+                  >
+                    Sub Región:{" "}
+                    <Box
+                      component="span"
+                      sx={{ color: "darkgreen", fontWeight: "bold" }}
+                    >
+                      {country[0]?.subregion}
+                    </Box>
+                  </Typography>
+
+                  <Typography
+                    variant="body1"
+                    align="center"
+                    sx={{ color: "#333", fontWeight: "bold" }}
+                  >
+                    Habitantes:{" "}
+                    <Box
+                      component="span"
+                      sx={{ color: "darkgreen", fontWeight: "bold" }}
+                    >
+                      {country[0]?.population}
+                    </Box>
+                  </Typography>
+                </Stack>
+              </CardContent>
+
+              <Typography
+                variant="body2"
+                component="h6"
+                align="center"
+                sx={{ color: "#333", fontWeight: "bold" }}
+              >
+                Paises Limitrofes
+              </Typography>
+
+              <CardActions>
+                <Stack
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="center"
+                  spacing={1}
+                  flexWrap="wrap"
+                  gap={{ xs: 2, sm: 1 }}
+                >
+                  {country[0].borders.map((item) => (
+                    <Link href={`/country/${item}`}>
+                      <Button
+                        variant="outlined"
+                        color="success"
+                        size="small"
+                        key={item}
+                      >
+                        {item}
+                      </Button>
+                    </Link>
+                  ))}
+                </Stack>
+              </CardActions>
+            </Card>
           </Box>
         </Box>
       )}
