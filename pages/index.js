@@ -9,7 +9,7 @@ import Gallery from "../components/Gallery/Gallery";
 import Footer from "../components/footer/Footer";
 
 export default function Home({ dataGallery }) {
-  console.log(dataGallery);
+  // console.log(dataGallery);
 
   return (
     <div className={styles.container}>

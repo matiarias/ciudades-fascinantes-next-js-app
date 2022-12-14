@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-
-import dataCards from "../../utils/dataCards.json";
+import axios from "axios";
 
 import { Cards } from "../cards/Cards";
 
@@ -17,11 +16,15 @@ const InfoCards = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
+  const fetchData = async () => {
+    const res = await axios.get("https://restcountries.com/v3.1/region/europe");
+    console.log(res.data);
+    setCardsData(res.data);
+    setIsLoading(false);
+  };
+
   useEffect(() => {
-    setTimeout(() => {
-      setCardsData(dataCards);
-      setIsLoading(false);
-    }, 3000);
+    fetchData();
   }, []);
 
   return (
@@ -48,7 +51,7 @@ const InfoCards = () => {
               sx={{ justifyContent: "center", alignItems: "center" }}
             >
               {cardsData.map((card) => (
-                <Cards key={card.title} card={card} />
+                <Cards key={card?.name.official} card={card} />
               ))}
             </Grid>
           </Box>
