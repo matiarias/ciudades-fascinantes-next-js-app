@@ -7,6 +7,7 @@ import Hero from "../components/hero/Hero";
 import InfoCards from "../components/InfoCards/InfoCards";
 import Gallery from "../components/Gallery/Gallery";
 import Footer from "../components/footer/Footer";
+import ButtonScrollTop from "../components/ButtonScrollTop/ButtonScrollTop";
 
 export default function Home({ dataGallery }) {
   // console.log(dataGallery);
@@ -23,6 +24,7 @@ export default function Home({ dataGallery }) {
         <Hero />
         <InfoCards />
         <Gallery dataGallery={dataGallery} />
+        <ButtonScrollTop />
       </main>
 
       <Footer />
