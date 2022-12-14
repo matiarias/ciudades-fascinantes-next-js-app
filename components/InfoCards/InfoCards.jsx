@@ -39,7 +39,12 @@ const InfoCards = () => {
         </Typography>
 
         {isLoading ? (
-          <Box sx={{ textAlign: "center", marginY: "20px" }}>
+          <Box
+            sx={{
+              textAlign: "center",
+              marginY: "20px",
+            }}
+          >
             <CircularProgress color="warning" size={60} thickness={6} />
           </Box>
         ) : (

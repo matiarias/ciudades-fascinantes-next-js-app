@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 import { useRouter } from "next/router";
 import Image from "next/image";
@@ -37,73 +36,96 @@ const CardId = () => {
   };
 
   useEffect(() => {
-    fetchCountry(params.id);
+    setTimeout(() => {
+      fetchCountry(params.id);
+    }, 3000);
   }, [params.id]);
 
   return (
-    <Box sx={{ position: "relative", minHeight: "100vh", width: "100%" }}>
-      <Image
-        src={country[0]?.flags.png}
-        alt={country[0]?.name.official}
-        fill
-        style={{ objectFit: "cover" }}
-      />
-
-      <Box
-        sx={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          height: "100%",
-          width: "100%",
-          bgcolor: "rgba(0,0,0,0.8)",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: 4,
-          paddingX: "16px",
-        }}
-      >
-        <Card sx={{ width: 700, backgroundColor: "darkgrey" }}>
-          <CardMedia
-            component="img"
-            height="200"
-            image={country[0]?.coatOfArms.png}
+    <>
+      {isLoading ? (
+        <Box
+          sx={{
+            height: "100vh",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <CircularProgress color="success" size={60} thickness={6} />
+        </Box>
+      ) : (
+        <Box sx={{ position: "relative", minHeight: "100vh", width: "100%" }}>
+          <Image
+            src={country[0]?.flags.png}
             alt={country[0]?.name.official}
-            sx={{ objectFit: "contain" }}
+            fill
+            style={{ objectFit: "cover" }}
           />
-          <CardContent>
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Typography variant="h5">{country[0]?.name.official}</Typography>
 
-              <Typography variant="h5">Región: {country[0]?.region}</Typography>
+          <Box
+            sx={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              height: "100%",
+              width: "100%",
+              bgcolor: "rgba(0,0,0,0.8)",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: 4,
+              paddingX: "16px",
+            }}
+          >
+            <Card sx={{ width: 700, backgroundColor: "darkgrey" }}>
+              <CardMedia
+                component="img"
+                height="200"
+                image={country[0]?.coatOfArms.png}
+                alt={country[0]?.name.official}
+                sx={{ objectFit: "contain" }}
+              />
+              <CardContent>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Typography variant="h5">
+                    {country[0]?.name.official}
+                  </Typography>
 
-              <Typography variant="h5">
-                Capital: {country[0]?.capital}
-              </Typography>
-            </Stack>
+                  <Typography variant="h5">
+                    Región: {country[0]?.region}
+                  </Typography>
 
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-              mt={2}
-            >
-              <Typography variant="h5">
-                Habitantes: {country[0]?.population}
-              </Typography>
+                  <Typography variant="h5">
+                    Capital: {country[0]?.capital}
+                  </Typography>
+                </Stack>
 
-              <Typography variant="h5">Idioma:</Typography>
-            </Stack>
-          </CardContent>
-        </Card>
-      </Box>
-    </Box>
+                <Stack
+                  direction="row"
+                  justifyContent="space-between"
+                  alignItems="center"
+                  mt={2}
+                >
+                  <Typography variant="h5">
+                    Habitantes: {country[0]?.population}
+                  </Typography>
+
+                  <Typography variant="h5">Idioma:</Typography>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Box>
+        </Box>
+      )}
+    </>
   );
 };
 
