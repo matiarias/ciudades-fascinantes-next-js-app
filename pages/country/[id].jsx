@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Link from "next/link";
 
-import {
-  Box,
-  Stack,
-  Typography,
-  CircularProgress,
-  Card,
-  CardContent,
-  CardMedia,
-} from "@mui/material";
+import { Box, Typography, CircularProgress, Button } from "@mui/material";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const CardId = () => {
   const [country, setCountry] = useState([]);
@@ -21,14 +16,14 @@ const CardId = () => {
   const router = useRouter();
   const params = router.query;
 
-  const fetchCountry = async (id) => {
+  const fetchCountry = async () => {
     try {
-      const res = await fetch(`https://restcountries.com/v3.1/alpha/${id}`);
-
-      const result = await res.json();
-
-      console.log(result);
-      setCountry(result);
+      const res = await axios({
+        method: "GET",
+        url: `https://restcountries.com/v3.1/alpha/${params.id}`,
+      });
+      console.log(res.data);
+      setCountry(res.data);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -36,10 +31,8 @@ const CardId = () => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchCountry(params.id);
-    }, 3000);
-  }, [params.id]);
+    fetchCountry();
+  }, []);
 
   return (
     <>
@@ -62,7 +55,7 @@ const CardId = () => {
             src={country[0]?.flags.png}
             alt={country[0]?.name.official}
             fill
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "cover", objectPosition: "center" }}
           />
 
           <Box
@@ -81,47 +74,25 @@ const CardId = () => {
               paddingX: "16px",
             }}
           >
-            <Card sx={{ width: 700, backgroundColor: "darkgrey" }}>
-              <CardMedia
-                component="img"
-                height="200"
-                image={country[0]?.coatOfArms.png}
-                alt={country[0]?.name.official}
-                sx={{ objectFit: "contain" }}
-              />
-              <CardContent>
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Typography variant="h5">
-                    {country[0]?.name.official}
-                  </Typography>
-
-                  <Typography variant="h5">
-                    Región: {country[0]?.region}
-                  </Typography>
-
-                  <Typography variant="h5">
-                    Capital: {country[0]?.capital}
-                  </Typography>
-                </Stack>
-
-                <Stack
-                  direction="row"
-                  justifyContent="space-between"
-                  alignItems="center"
-                  mt={2}
-                >
-                  <Typography variant="h5">
-                    Habitantes: {country[0]?.population}
-                  </Typography>
-
-                  <Typography variant="h5">Idioma:</Typography>
-                </Stack>
-              </CardContent>
-            </Card>
+            <Link href="/">
+              <Button
+                variant="contained"
+                size="large"
+                startIcon={<ArrowBackIcon />}
+                sx={{
+                  position: "absolute",
+                  top: "100px",
+                  left: "20px",
+                  backgroundColor: "#cecece",
+                  color: "black",
+                  "&:hover": {
+                    backgroundColor: "#7a7a7a",
+                  },
+                }}
+              >
+                Inicio
+              </Button>
+            </Link>
           </Box>
         </Box>
       )}

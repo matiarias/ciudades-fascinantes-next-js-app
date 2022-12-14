@@ -36,7 +36,7 @@ export const SingleCard = ({ card }) => {
               Capital: {card?.capital}
             </Typography>
 
-            <Link href="/country/[id]" as={`/country/${card?.cca2}`}>
+            <Link href="/country/[id]" as={`/country/${card?.cioc}`}>
               <Button
                 sx={{ marginTop: "20px" }}
                 variant="contained"
