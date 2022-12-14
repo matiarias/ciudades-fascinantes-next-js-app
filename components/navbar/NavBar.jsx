@@ -1,6 +1,7 @@
 import { Box, AppBar, Toolbar, Typography } from "@mui/material";
 import navbarImg from "../../public/navbar-image-2.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const NavBar = () => {
   return (
@@ -14,13 +15,15 @@ const NavBar = () => {
           }}
         >
           <Toolbar sx={{ height: "80px", gap: "12px" }}>
-            <Image
-              src={navbarImg}
-              alt="navbar image viajes"
-              height={60}
-              width={60}
-              style={{ objectFit: "cover" }}
-            />
+            <Link href="/">
+              <Image
+                src={navbarImg}
+                alt="navbar image viajes"
+                height={60}
+                width={60}
+                style={{ objectFit: "cover" }}
+              />
+            </Link>
 
             <Typography variant="h6" sx={{ fontWeight: "bold" }}>
               Ciudades Fascinantes

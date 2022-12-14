@@ -1,30 +1,15 @@
-import { useEffect, useState } from "react";
 import Image from "next/image";
-// import dataGallery from "../../utils/dataGaleria.json";
 
 import {
   Container,
-  Box,
   ImageList,
   ImageListItem,
   ImageListItemBar,
   Typography,
   useMediaQuery,
-  CircularProgress,
 } from "@mui/material";
 
 const Gallery = ({ dataGallery }) => {
-  // const [galleryData, setGalleryData] = useState([]);
-
-  // const [isLoading, setIsLoading] = useState(true);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     setGalleryData(dataGallery);
-  //     setIsLoading(false);
-  //   }, 3000);
-  // }, []);
-
   const breakpoint = useMediaQuery("(min-width:600px)");
 
   return (

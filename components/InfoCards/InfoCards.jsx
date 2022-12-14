@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Cards } from "../cards/Cards";
+import { SingleCard } from "../SingleCard/SingleCard";
 
 import {
   Container,
@@ -18,7 +18,7 @@ const InfoCards = () => {
 
   const fetchData = async () => {
     const res = await axios.get("https://restcountries.com/v3.1/region/europe");
-    console.log(res.data);
+    // console.log(res.data);
     setCardsData(res.data);
     setIsLoading(false);
   };
@@ -35,12 +35,12 @@ const InfoCards = () => {
           align="center"
           sx={{ marginY: "24px", fontWeight: "700" }}
         >
-          Explora sobre las Mejores Ciudades del Mundo
+          Explora sobre los mejores paises del mundo
         </Typography>
 
         {isLoading ? (
           <Box sx={{ textAlign: "center", marginY: "20px" }}>
-            <CircularProgress color="success" size={60} thickness={6} />
+            <CircularProgress color="warning" size={60} thickness={6} />
           </Box>
         ) : (
           <Box>
@@ -51,7 +51,7 @@ const InfoCards = () => {
               sx={{ justifyContent: "center", alignItems: "center" }}
             >
               {cardsData.map((card) => (
-                <Cards key={card?.name.official} card={card} />
+                <SingleCard key={card?.name.official} card={card} />
               ))}
             </Grid>
           </Box>

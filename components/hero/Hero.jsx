@@ -50,7 +50,7 @@ const Hero = () => {
             sx={{ color: "#ebebeb", fontWeight: "600" }}
             align="center"
           >
-            Explora las Ciudades más increibles del mundo!
+            Explora los paises y ciudades más increibles del mundo
           </Typography>
         </Box>
       </Box>

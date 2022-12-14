@@ -1,8 +1,17 @@
 import Link from "next/link";
 
-import { Grid, Card, CardContent, CardMedia, Typography } from "@mui/material";
+import {
+  Grid,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+} from "@mui/material";
 
-export const Cards = ({ card }) => {
+import TravelExploreIcon from "@mui/icons-material/TravelExplore";
+
+export const SingleCard = ({ card }) => {
   return (
     <>
       <Grid item>
@@ -26,6 +35,18 @@ export const Cards = ({ card }) => {
             <Typography variant="body1" align="center">
               Capital: {card?.capital}
             </Typography>
+
+            <Link href="/country/[id]" as={`/country/${card?.cca2}`}>
+              <Button
+                sx={{ marginTop: "20px" }}
+                variant="contained"
+                color="success"
+                fullWidth={true}
+                startIcon={<TravelExploreIcon />}
+              >
+                Más Información
+              </Button>
+            </Link>
           </CardContent>
         </Card>
       </Grid>
