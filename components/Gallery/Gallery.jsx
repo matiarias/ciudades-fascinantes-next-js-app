@@ -27,7 +27,7 @@ const Gallery = ({ dataGallery }) => {
           sx={{
             position: "relative",
             width: "100%",
-            height: "1000px",
+            height: "1200px",
           }}
           cols={breakpoint ? 3 : 2}
           rowHeight="auto"

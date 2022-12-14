@@ -41,7 +41,7 @@ const CardId = () => {
   };
 
   useEffect(() => {
-    fetchCountry();
+    fetchCountry(params.id);
   }, [params.id]);
 
   return (
@@ -212,13 +212,8 @@ const CardId = () => {
                   gap={{ xs: 2, sm: 1 }}
                 >
                   {country[0].borders.map((item) => (
-                    <Link href={`/country/${item}`}>
-                      <Button
-                        variant="outlined"
-                        color="success"
-                        size="small"
-                        key={item}
-                      >
+                    <Link key={item} href={`/country/${item}`}>
+                      <Button variant="outlined" color="success" size="small">
                         {item}
                       </Button>
                     </Link>

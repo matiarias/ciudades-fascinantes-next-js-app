@@ -32,7 +32,7 @@ export default function Home({ dataGallery }) {
 
 export async function getServerSideProps() {
   const resp = await axios.get(
-    `https://api.unsplash.com/search/photos/?client_id=${process.env.NEXT_PUBLIC_UNSPLASH_API_KEY}&orientation=landscape&query=ciudades&per_page=15`
+    `https://api.unsplash.com/search/photos/?client_id=${process.env.NEXT_PUBLIC_UNSPLASH_API_KEY}&orientation=landscape&query=ciudades&per_page=18`
   );
 
   return {
