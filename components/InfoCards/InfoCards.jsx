@@ -17,10 +17,16 @@ const InfoCards = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchData = async () => {
-    const res = await axios.get("https://restcountries.com/v3.1/region/europe");
-    // console.log(res.data);
-    setCardsData(res.data);
-    setIsLoading(false);
+    try {
+      const res = await axios.get(
+        "https://restcountries.com/v3.1/region/europe"
+      );
+      // console.log(res.data);
+      setCardsData(res.data);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   useEffect(() => {
