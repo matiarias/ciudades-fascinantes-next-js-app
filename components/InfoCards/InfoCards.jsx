@@ -9,6 +9,10 @@ import {
   Box,
   Typography,
   CircularProgress,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
 } from "@mui/material";
 
 const InfoCards = () => {
@@ -16,10 +20,12 @@ const InfoCards = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
+  const [inputSelect, setInputSelect] = useState("Europe");
+
   const fetchData = async () => {
     try {
       const res = await axios.get(
-        "https://restcountries.com/v3.1/region/europe"
+        `https://restcountries.com/v3.1/region/${inputSelect}`
       );
       // console.log(res.data);
       setCardsData(res.data);
@@ -31,7 +37,11 @@ const InfoCards = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [inputSelect]);
+
+  const handleChangeSelect = ({ target }) => {
+    setInputSelect(target.value);
+  };
 
   return (
     <section>
@@ -44,7 +54,28 @@ const InfoCards = () => {
           Explora sobre los mejores paises del mundo
         </Typography>
 
-        {isLoading ? (
+        <Box textAlign="center" sx={{ marginY: "2rem" }}>
+          <FormControl variant="standard" color="success" margin="dense">
+            <InputLabel id="select-country">Filtrar por Región</InputLabel>
+            <Select
+              variant="filled"
+              labelId="select-country"
+              id="demo-simple-select"
+              value={inputSelect}
+              label="Filtrar por Region"
+              onChange={handleChangeSelect}
+              sx={{ width: { xs: 200, sm: 300, md: 350 } }}
+            >
+              <MenuItem value="Americas">Americas</MenuItem>
+              <MenuItem value="Europe">Europe</MenuItem>
+              <MenuItem value="Asia">Asia</MenuItem>
+              <MenuItem value="Africa">Africa</MenuItem>
+              <MenuItem value="Oceania">Oceania</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+
+        {isLoading && !cardsData ? (
           <Box
             sx={{
               textAlign: "center",
