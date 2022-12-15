@@ -93,11 +93,11 @@ const CardId = () => {
             <Link href="/">
               <Button
                 variant="contained"
-                size="large"
+                size="medium"
                 startIcon={<ArrowBackIcon />}
                 sx={{
                   position: "absolute",
-                  top: "100px",
+                  top: { xs: 90, sm: 100 },
                   left: "20px",
                   backgroundColor: "#cecece",
                   color: "black",
@@ -114,7 +114,7 @@ const CardId = () => {
 
             <Card
               sx={{
-                maxWidth: 500,
+                width: { xs: "100%", sm: 400, md: 500 },
                 padding: "16px 8px",
                 backgroundColor: "rgba(250,250,250,0.8)",
               }}
