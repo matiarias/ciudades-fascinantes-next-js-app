@@ -46,7 +46,7 @@ const CardId = () => {
 
   return (
     <>
-      {isLoading ? (
+      {isLoading && !country ? (
         <Box
           sx={{
             height: "100vh",
@@ -75,7 +75,7 @@ const CardId = () => {
               left: 0,
               height: "100%",
               width: "100%",
-              bgcolor: "rgba(0,0,0,0.8)",
+              bgcolor: "rgba(0,0,0,0.6)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
@@ -211,9 +211,9 @@ const CardId = () => {
                   flexWrap="wrap"
                   gap={{ xs: 2, sm: 1 }}
                 >
-                  {country[0].borders.map((item) => (
+                  {country[0]?.borders.map((item) => (
                     <Link key={item} href={`/country/${item}`}>
-                      <Button variant="outlined" color="success" size="small">
+                      <Button variant="contained" color="success" size="small">
                         {item}
                       </Button>
                     </Link>
