@@ -20,7 +20,7 @@ import {
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 const CardId = () => {
-  const [country, setCountry] = useState([]);
+  const [country, setCountry] = useState(null);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -33,7 +33,7 @@ const CardId = () => {
         method: "GET",
         url: `https://restcountries.com/v3.1/alpha/${params.id}`,
       });
-      console.log(res.data);
+      // console.log(res.data);
       setCountry(res.data);
       setIsLoading(false);
     } catch (error) {
