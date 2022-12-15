@@ -8,13 +8,17 @@ const ButtonScrollTop = () => {
   const [backToTop, setBackToTop] = useState(false);
 
   useEffect(() => {
-    window.addEventListener("scroll", () => {
+    const scrollToTop = window.addEventListener("scroll", () => {
       if (window.scrollY > 100) {
         setBackToTop(true);
       } else {
         setBackToTop(false);
       }
     });
+
+    return () => {
+      scrollToTop;
+    };
   }, []);
 
   const handleClickToTop = () => {
