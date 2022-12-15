@@ -43,6 +43,9 @@ const Gallery = ({ dataGallery }) => {
                 alt={item.tags[1].title}
                 fill
                 style={{ objectFit: "cover" }}
+                sizes="(max-width: 600px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
               />
 
               {/* <ImageListItemBar title={item.tags[1].title} /> */}

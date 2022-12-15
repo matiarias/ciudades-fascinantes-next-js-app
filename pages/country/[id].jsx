@@ -218,7 +218,11 @@ const CardId = () => {
                   gap={{ xs: 2, sm: 1 }}
                 >
                   {country[0]?.borders.map((item) => (
-                    <Link key={item} href={`/country/${item}`}>
+                    <Link
+                      key={item}
+                      href="/country/[id]"
+                      as={`/country/${item}`}
+                    >
                       <Button variant="contained" color="success" size="small">
                         {item}
                       </Button>
