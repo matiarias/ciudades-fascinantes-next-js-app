@@ -15,7 +15,7 @@ export const SingleCard = ({ card }) => {
   return (
     <>
       <Grid item>
-        <Card sx={{ maxWidth: 350 }}>
+        <Card sx={{ width: { xs: "100%", sm: 250, md: 300 } }}>
           <CardMedia
             component="img"
             height="200"
