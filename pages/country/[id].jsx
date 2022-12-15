@@ -4,6 +4,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head";
 
 import {
   Box,
@@ -46,6 +47,11 @@ const CardId = () => {
 
   return (
     <>
+      <Head>
+        <title>Pais: {params.id}</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       {isLoading && !country ? (
         <Box
           sx={{
