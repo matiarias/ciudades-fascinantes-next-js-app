@@ -59,7 +59,7 @@ const Login = () => {
       await googleLogIn();
       router.push("/");
     } catch (error) {
-      console.log(err);
+      console.log(error);
     }
   };
 
@@ -68,7 +68,7 @@ const Login = () => {
       await facebookLogIn();
       router.push("/");
     } catch (error) {
-      console.log(err);
+      console.log(error);
     }
   };
 
@@ -116,7 +116,7 @@ const Login = () => {
           >
             <CardMedia
               component="img"
-              height="130"
+              height="140"
               image="https://images.pexels.com/photos/4987276/pexels-photo-4987276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="italia"
             />
@@ -181,7 +181,7 @@ const Login = () => {
 
               <Stack
                 component="div"
-                direction="row"
+                direction={{ xs: "column", md: "row" }}
                 justifyContent="center"
                 alignItems="center"
                 spacing={2}
