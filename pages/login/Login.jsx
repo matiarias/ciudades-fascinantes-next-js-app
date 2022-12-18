@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 import {
@@ -50,107 +51,126 @@ const Login = () => {
       </Head>
       <Box
         sx={{
-          height: "100vh",
+          position: "relative",
+          minHeight: "100vh",
           width: "100vw",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingX: "24px",
-          background: "#afafaf",
         }}
       >
-        <Card sx={{ width: { xs: "100%", sm: "100%", md: 400, lg: 500 } }}>
-          <CardMedia
-            component="img"
-            height="150"
-            image="https://cdn.pixabay.com/photo/2016/10/21/14/50/plouzane-1758197_960_720.jpg"
-            alt="beach"
-          />
+        <Image
+          style={{ objectFit: "cover", objectPosition: "center" }}
+          fill
+          src="https://images.pexels.com/photos/531602/pexels-photo-531602.jpeg"
+          priority
+          alt="ciudad costera"
+        />
 
-          <CardContent component="div">
-            <Typography gutterBottom variant="h5" align="center">
-              Iniciar Sesión
-            </Typography>
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            bgcolor: "rgba(0,0,0,0.6)",
+            paddingX: "24px",
+          }}
+        >
+          <Card sx={{ width: { xs: "100%", sm: 420, md: 450, lg: 500 } }}>
+            <CardMedia
+              component="img"
+              height="130"
+              image="https://images.pexels.com/photos/4987276/pexels-photo-4987276.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+              alt="italia"
+            />
 
-            {errorLogIn && <Alert severity="error">{errorLogIn}</Alert>}
-
-            <Box onSubmit={handleSubmit} component="form">
-              <TextField
-                id="outlined-basic"
-                label="Email"
-                type="email"
-                variant="outlined"
-                color="primary"
-                fullWidth={true}
-                sx={{ marginBottom: "10px" }}
-                value={email}
-                onChange={handleChangeEmail}
-              />
-
-              <TextField
-                id="filled-password-input"
-                label="Password"
-                type="password"
-                autoComplete="current-password"
-                variant="outlined"
-                color="primary"
-                fullWidth={true}
-                value={password}
-                onChange={handleChangePassword}
-              />
-
-              <CardActions>
-                <Button
-                  sx={{ marginY: "10px" }}
-                  variant="contained"
-                  color="primary"
-                  fullWidth={true}
-                  endIcon={<LoginIcon />}
-                  type="submit"
-                >
-                  Inicar
-                </Button>
-              </CardActions>
-            </Box>
-
-            <Typography variant="body1" align="center">
-              Inicia Sesión con
-            </Typography>
-
-            <Stack
-              component="div"
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              marginY={1}
-            >
-              <Button
-                variant="contained"
-                startIcon={<GoogleIcon />}
-                color="error"
-              >
-                Google
-              </Button>
-            </Stack>
-
-            <Box textAlign="center">
-              <Typography gutterBottom variant="body2" component="span">
-                ¿Ya estás registrado?
+            <CardContent component="div">
+              <Typography gutterBottom variant="h5" align="center">
+                Iniciar Sesión
               </Typography>
-              <Link
-                style={{
-                  color: "blue",
-                  fontWeight: "bold",
-                  marginLeft: "8px",
-                }}
-                href="/signup/signup"
+
+              {errorLogIn && <Alert severity="error">{errorLogIn}</Alert>}
+
+              <Box onSubmit={handleSubmit} component="form">
+                <TextField
+                  id="outlined-basic"
+                  label="Email"
+                  type="email"
+                  variant="outlined"
+                  color="error"
+                  fullWidth={true}
+                  sx={{ marginBottom: "10px" }}
+                  value={email}
+                  onChange={handleChangeEmail}
+                />
+
+                <TextField
+                  id="filled-password-input"
+                  label="Password"
+                  type="password"
+                  autoComplete="current-password"
+                  variant="outlined"
+                  color="error"
+                  fullWidth={true}
+                  value={password}
+                  onChange={handleChangePassword}
+                />
+
+                <CardActions>
+                  <Button
+                    sx={{ marginY: "10px" }}
+                    variant="contained"
+                    color="error"
+                    fullWidth={true}
+                    endIcon={<LoginIcon />}
+                    type="submit"
+                  >
+                    Inicar
+                  </Button>
+                </CardActions>
+              </Box>
+
+              <Typography variant="body1" align="center">
+                Inicia Sesión con
+              </Typography>
+
+              <Stack
+                component="div"
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+                marginY={1}
               >
-                Registrarse
-              </Link>
-            </Box>
-          </CardContent>
-        </Card>
+                <Button
+                  variant="contained"
+                  startIcon={<GoogleIcon />}
+                  color="warning"
+                >
+                  Google
+                </Button>
+              </Stack>
+
+              <Box textAlign="center">
+                <Typography gutterBottom variant="body2" component="span">
+                  ¿Ya estás registrado?
+                </Typography>
+                <Link
+                  style={{
+                    color: "#ae0000",
+                    fontWeight: "bold",
+                    marginLeft: "8px",
+                  }}
+                  href="/signup/signup"
+                >
+                  Registrarse
+                </Link>
+              </Box>
+            </CardContent>
+          </Card>
+        </Box>
       </Box>
     </>
   );
