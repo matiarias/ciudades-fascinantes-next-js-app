@@ -1,7 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 import { useState } from "react";
+
+import { useAuth } from "../../hooks/useAuth";
 
 import {
   Box,
@@ -17,9 +21,13 @@ import {
 import LoginIcon from "@mui/icons-material/Login";
 
 const SignUp = () => {
+  const { signUp } = useAuth();
+
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
+
+  const router = useRouter();
 
   const handleChangeEmail = ({ target }) => {
     setEmail(target.value);
@@ -33,6 +41,8 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
+      await signUp(email, password);
+      router.push("/");
     } catch (error) {
       console.log(error);
     }

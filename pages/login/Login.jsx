@@ -1,7 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
+
 import { useState } from "react";
+
+import { useAuth } from "../../hooks/useAuth";
 
 import {
   Box,
@@ -20,11 +24,15 @@ import LoginIcon from "@mui/icons-material/Login";
 import GoogleIcon from "@mui/icons-material/Google";
 
 const Login = () => {
+  const { logIn } = useAuth();
+
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
 
   const [errorLogIn, setErrorLogIn] = useState("");
+
+  const router = useRouter();
 
   const handleChangeEmail = ({ target }) => {
     setEmail(target.value);
@@ -38,6 +46,8 @@ const Login = () => {
     e.preventDefault();
 
     try {
+      await logIn(email, password);
+      router.push("/");
     } catch (error) {
       setErrorLogIn(error.message);
     }
@@ -92,7 +102,15 @@ const Login = () => {
                 Iniciar Sesión
               </Typography>
 
-              {errorLogIn && <Alert severity="error">{errorLogIn}</Alert>}
+              {errorLogIn && (
+                <Alert
+                  sx={{ marginY: "16px" }}
+                  severity="error"
+                  variant="standard"
+                >
+                  {errorLogIn}
+                </Alert>
+              )}
 
               <Box onSubmit={handleSubmit} component="form">
                 <TextField
