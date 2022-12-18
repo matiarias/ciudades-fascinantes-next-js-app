@@ -1,10 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { useAuth } from "../../hooks/useAuth";
+
 import { Box, Stack, Button, AppBar, Toolbar, Typography } from "@mui/material";
+
 import navbarImg from "../../public/navbar-image-2.png";
 
 const NavBar = () => {
+  const { user, logOut } = useAuth();
+  console.log(user);
+
+  const handleLogOut = async () => {
+    await logOut();
+  };
+
   return (
     <header>
       <Box sx={{ flexGrow: 1 }}>
@@ -47,19 +57,36 @@ const NavBar = () => {
               </Typography>
             </Stack>
 
-            <Stack direction="row" spacing={2}>
-              <Link href="/login/login">
-                <Button variant="contained" color="success" size="small">
-                  Inicia Sesión
-                </Button>
-              </Link>
+            {user ? (
+              <Stack direction="row" spacing={2}>
+                <Typography variant="body1" component="span">
+                  {user?.email}
+                </Typography>
 
-              <Link href="/signup/signup">
-                <Button variant="contained" color="error" size="small">
-                  Registrarse
+                <Button
+                  onClick={handleLogOut}
+                  variant="contained"
+                  color="warning"
+                  size="small"
+                >
+                  Cerrar Sesión
                 </Button>
-              </Link>
-            </Stack>
+              </Stack>
+            ) : (
+              <Stack direction="row" spacing={2}>
+                <Link href="/login/login">
+                  <Button variant="contained" color="success" size="small">
+                    Inicia Sesión
+                  </Button>
+                </Link>
+
+                <Link href="/signup/signup">
+                  <Button variant="contained" color="error" size="small">
+                    Registrarse
+                  </Button>
+                </Link>
+              </Stack>
+            )}
           </Toolbar>
         </AppBar>
       </Box>
