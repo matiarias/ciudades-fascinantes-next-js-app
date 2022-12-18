@@ -3,7 +3,15 @@ import Link from "next/link";
 
 import { useAuth } from "../../hooks/useAuth";
 
-import { Box, Stack, Button, AppBar, Toolbar, Typography } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Button,
+  AppBar,
+  Toolbar,
+  Typography,
+  Avatar,
+} from "@mui/material";
 
 import navbarImg from "../../public/navbar-image-2.png";
 
@@ -62,10 +70,25 @@ const NavBar = () => {
             </Stack>
 
             {user ? (
-              <Stack direction="row" spacing={2}>
-                <Typography variant="body1" component="span">
-                  {user?.email}
-                </Typography>
+              <Stack direction="row" spacing={3}>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    gap: "16px",
+                  }}
+                >
+                  <Avatar
+                    alt={user?.email}
+                    src={user?.photoURL}
+                    srcSet={user?.photoURL}
+                  />
+
+                  <Typography variant="body1" component="span">
+                    {user?.email}
+                  </Typography>
+                </Box>
 
                 <Button
                   onClick={handleLogOut}
