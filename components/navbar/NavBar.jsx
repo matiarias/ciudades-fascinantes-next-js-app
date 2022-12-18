@@ -71,13 +71,11 @@ const NavBar = () => {
 
             {user ? (
               <Stack direction="row" spacing={3}>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    gap: "16px",
-                  }}
+                <Stack
+                  direction="row"
+                  justifyContent="center"
+                  alignItems="center"
+                  spacing={2}
                 >
                   <Avatar
                     alt={user?.email}
@@ -88,16 +86,16 @@ const NavBar = () => {
                   <Typography variant="body1" component="span">
                     {user?.email}
                   </Typography>
-                </Box>
 
-                <Button
-                  onClick={handleLogOut}
-                  variant="contained"
-                  color="warning"
-                  size="small"
-                >
-                  Cerrar Sesión
-                </Button>
+                  <Button
+                    onClick={handleLogOut}
+                    variant="contained"
+                    color="warning"
+                    size="small"
+                  >
+                    Cerrar Sesión
+                  </Button>
+                </Stack>
               </Stack>
             ) : (
               <Stack direction="row" spacing={2}>

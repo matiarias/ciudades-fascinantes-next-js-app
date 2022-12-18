@@ -8,6 +8,7 @@ import {
   onAuthStateChanged,
   GoogleAuthProvider,
   signInWithPopup,
+  FacebookAuthProvider,
 } from "firebase/auth";
 
 export const useAuth = () => {
@@ -30,6 +31,11 @@ export const useAuth = () => {
     signInWithPopup(auth, provider);
   };
 
+  const facebookLogIn = () => {
+    const fbProvider = new FacebookAuthProvider();
+    signInWithPopup(auth, fbProvider);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -46,6 +52,7 @@ export const useAuth = () => {
     logOut,
     user,
     googleLogIn,
+    facebookLogIn,
   };
 
   return value;

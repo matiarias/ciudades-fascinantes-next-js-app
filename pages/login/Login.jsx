@@ -22,9 +22,10 @@ import {
 
 import LoginIcon from "@mui/icons-material/Login";
 import GoogleIcon from "@mui/icons-material/Google";
+import FacebookIcon from "@mui/icons-material/Facebook";
 
 const Login = () => {
-  const { logIn, googleLogIn } = useAuth();
+  const { logIn, googleLogIn, facebookLogIn } = useAuth();
 
   const [email, setEmail] = useState("");
 
@@ -56,6 +57,15 @@ const Login = () => {
   const handleGoogleLogIn = async () => {
     try {
       await googleLogIn();
+      router.push("/");
+    } catch (error) {
+      console.log(err);
+    }
+  };
+
+  const handleFacebookLogIn = async () => {
+    try {
+      await facebookLogIn();
       router.push("/");
     } catch (error) {
       console.log(err);
@@ -169,6 +179,7 @@ const Login = () => {
                 direction="row"
                 justifyContent="center"
                 alignItems="center"
+                spacing={2}
                 marginY={1}
               >
                 <Button
@@ -178,6 +189,15 @@ const Login = () => {
                   color="warning"
                 >
                   Google
+                </Button>
+
+                <Button
+                  onClick={handleFacebookLogIn}
+                  variant="contained"
+                  startIcon={<FacebookIcon />}
+                  color="primary"
+                >
+                  Facebook
                 </Button>
               </Stack>
 
