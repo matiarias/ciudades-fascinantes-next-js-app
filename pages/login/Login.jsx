@@ -102,13 +102,18 @@ const Login = () => {
             width: "100%",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: { xs: "center", lg: "end" },
             alignItems: "center",
             bgcolor: "rgba(0,0,0,0.6)",
             paddingX: "24px",
+            paddingBottom: { xs: 0, lg: "16px" },
           }}
         >
-          <Card sx={{ width: { xs: "100%", sm: 420, md: 450, lg: 500 } }}>
+          <Card
+            sx={{
+              width: { xs: "100%", sm: 420, md: 450, lg: 500 },
+            }}
+          >
             <CardMedia
               component="img"
               height="130"

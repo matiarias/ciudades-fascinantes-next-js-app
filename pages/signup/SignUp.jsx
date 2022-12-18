@@ -81,9 +81,10 @@ const SignUp = () => {
             alignItems: "center",
             bgcolor: "rgba(0,0,0,0.6)",
             paddingX: "24px",
+            paddingTop: "8px",
           }}
         >
-          <Card sx={{ width: { xs: "100%", sm: "100%", md: 400, lg: 500 } }}>
+          <Card sx={{ width: { xs: "100%", sm: 420, md: 450, lg: 500 } }}>
             <CardMedia
               component="img"
               height="150"
