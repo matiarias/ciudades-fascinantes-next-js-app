@@ -24,7 +24,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import GoogleIcon from "@mui/icons-material/Google";
 
 const Login = () => {
-  const { logIn } = useAuth();
+  const { logIn, googleLogIn } = useAuth();
 
   const [email, setEmail] = useState("");
 
@@ -50,6 +50,15 @@ const Login = () => {
       router.push("/");
     } catch (error) {
       setErrorLogIn(error.message);
+    }
+  };
+
+  const handleGoogleLogIn = async () => {
+    try {
+      await googleLogIn();
+      router.push("/");
+    } catch (error) {
+      console.log(err);
     }
   };
 
@@ -163,6 +172,7 @@ const Login = () => {
                 marginY={1}
               >
                 <Button
+                  onClick={handleGoogleLogIn}
                   variant="contained"
                   startIcon={<GoogleIcon />}
                   color="warning"

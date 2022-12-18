@@ -6,6 +6,8 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup,
 } from "firebase/auth";
 
 export const useAuth = () => {
@@ -23,6 +25,11 @@ export const useAuth = () => {
     return signOut(auth);
   };
 
+  const googleLogIn = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider);
+  };
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -38,6 +45,7 @@ export const useAuth = () => {
     logIn,
     logOut,
     user,
+    googleLogIn,
   };
 
   return value;

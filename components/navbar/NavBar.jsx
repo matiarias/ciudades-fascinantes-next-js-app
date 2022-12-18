@@ -12,7 +12,11 @@ const NavBar = () => {
   console.log(user);
 
   const handleLogOut = async () => {
-    await logOut();
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
