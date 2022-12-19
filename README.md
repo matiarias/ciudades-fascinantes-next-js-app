@@ -20,7 +20,7 @@ Deploy Site: [https://folcademy-next-app.vercel.app](https://folcademy-next-app.
 
 ![ciudades-fascinantes-signup](./public/screenshots/signup-sreenshot.png)
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap:wrap">
+<div style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap: wrap">
 
 <img alt="Mobile home screenshot" width="250px" src="./public/screenshots/mobile-home-sceenshot.png" />
 
