@@ -144,7 +144,7 @@ const Login = () => {
                   variant="outlined"
                   color="error"
                   fullWidth={true}
-                  sx={{ marginBottom: "8px" }}
+                  sx={{ marginBottom: "10px" }}
                   value={email}
                   onChange={handleChangeEmail}
                 />
