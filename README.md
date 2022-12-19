@@ -1,16 +1,3 @@
-<Style>
-
-    .mobile-screenshots {
-        height: 350px;
-        width: 100%; 
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        gap:1rem;
-    }
-
-</Style>
-
 # Ciudades Fascinantes App
 
 Ciudades fascinantes it's an app about information of countries and cities. It's my final project for an intensive course of Next.js and React.js. I built the app with Next.js, React.js, Firebase and Material UI. For the data images I used the Unsplash API, and for the information of the countries and cities I used REST countries API.
@@ -33,14 +20,11 @@ Deploy Site: [https://folcademy-next-app.vercel.app](https://folcademy-next-app.
 
 ![ciudades-fascinantes-signup](./public/screenshots/signup-sreenshot.png)
 
----
+<div style="display: flex; justify-content: center; align-items: center; gap: 16px; flex-wrap:wrap">
 
-<div class="mobile-screenshots">
+<img alt="Mobile home screenshot" width="250px" src="./public/screenshots/mobile-home-sceenshot.png" />
 
-![ciudades-fascinantes-mobile-home](./public/screenshots/mobile-home-sceenshot.png)
-
-![ciudades-fascinantes-mobile-gallery](./public/screenshots/mobile-gallery-screenshot.png)
-
+<img alt="mobile gallery screenshot" width="250px" src="./public/screenshots/mobile-gallery-screenshot.png" />
 </div>
 
 ---
