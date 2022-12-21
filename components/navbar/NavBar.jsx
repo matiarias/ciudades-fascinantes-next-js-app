@@ -129,7 +129,7 @@ const NavBar = () => {
               >
                 <Link href="/login/login">
                   <Button variant="contained" color="success" size="small">
-                    Inicia Sesión
+                    Iniciar Sesión
                   </Button>
                 </Link>
 
@@ -154,11 +154,11 @@ const NavBar = () => {
               >
                 {!nav ? (
                   <IconButton>
-                    <MenuIcon color="success" fontSize="large" />
+                    <MenuIcon sx={{ color: "#00bf00" }} fontSize="large" />
                   </IconButton>
                 ) : (
                   <IconButton>
-                    <CloseIcon color="success" fontSize="large" />
+                    <CloseIcon sx={{ color: "#00bf00" }} fontSize="large" />
                   </IconButton>
                 )}
               </Box>
@@ -250,7 +250,7 @@ const NavBar = () => {
                             color="secondary"
                             size="small"
                           >
-                            Inicia Sesión
+                            Iniciar Sesión
                           </Button>
                         </Link>
 

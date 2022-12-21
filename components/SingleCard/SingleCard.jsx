@@ -19,8 +19,8 @@ export const SingleCard = ({ card }) => {
           <CardMedia
             component="img"
             height="200"
-            image={card?.flags.png}
-            alt={card.title}
+            image={card?.flags?.png}
+            alt={card?.name?.official}
           />
           <CardContent sx={{ background: "#333", color: "white" }}>
             <Typography
@@ -29,14 +29,14 @@ export const SingleCard = ({ card }) => {
               component="div"
               align="center"
             >
-              {card?.name.official}
+              {card?.name?.official}
             </Typography>
 
             <Typography variant="body1" align="center">
               Capital: {card?.capital}
             </Typography>
 
-            <Link href="/country/[id]" as={`/country/${card?.cioc}`}>
+            <Link href="/country/[id]" as={`/country/${card?.cca2}`}>
               <Button
                 sx={{ marginTop: "20px" }}
                 variant="contained"

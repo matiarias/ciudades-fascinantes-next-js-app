@@ -29,7 +29,7 @@ Deploy Site: [https://folcademy-next-app.vercel.app](https://folcademy-next-app.
 
 ---
 
-## API
+## APIs
 
 - [https://restcountries.com/#api-endpoints-v3-code](https://restcountries.com/#api-endpoints-v3-code)
 
@@ -42,8 +42,9 @@ Deploy Site: [https://folcademy-next-app.vercel.app](https://folcademy-next-app.
 - Javascript
 - Material UI
 - Firebase Auth
+- SWR-Vercel (Data Fetching)
+- SSR
 - Next.js Hooks
-- Get Server Side Props
 - React Hooks
 
 ## How to use

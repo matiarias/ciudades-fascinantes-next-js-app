@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import useSWR from "swr";
 import axios from "axios";
 
 import { SingleCard } from "../SingleCard/SingleCard";
@@ -16,32 +17,57 @@ import {
 } from "@mui/material";
 
 const InfoCards = () => {
-  const [cardsData, setCardsData] = useState([]);
-
-  const [isLoading, setIsLoading] = useState(true);
-
   const [inputSelect, setInputSelect] = useState("Europe");
-
-  const fetchData = async () => {
-    try {
-      const res = await axios.get(
-        `https://restcountries.com/v3.1/region/${inputSelect}`
-      );
-      // console.log(res.data);
-      setCardsData(res.data);
-      setIsLoading(false);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, [inputSelect]);
 
   const handleChangeSelect = ({ target }) => {
     setInputSelect(target.value);
   };
+
+  const fetchCards = () => {
+    return axios
+      .get(`https://restcountries.com/v3.1/region/${inputSelect}`)
+      .then((resp) => resp.data);
+  };
+
+  const { data, error, isLoading } = useSWR(
+    `https://restcountries.com/v3.1/region/${inputSelect}`,
+    fetchCards
+  );
+
+  if (error)
+    return (
+      <Box
+        sx={{
+          height: "300px",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          paddingX: "1rem",
+        }}
+      >
+        <Typography variant="h4" align="center" sx={{ fontWeight: "bold" }}>
+          Error al cargar la información
+        </Typography>
+      </Box>
+    );
+
+  if (isLoading)
+    return (
+      <Box
+        sx={{
+          height: "300px",
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress color="success" size={60} thickness={6} />
+      </Box>
+    );
 
   return (
     <section>
@@ -75,29 +101,18 @@ const InfoCards = () => {
           </FormControl>
         </Box>
 
-        {isLoading && !cardsData ? (
-          <Box
-            sx={{
-              textAlign: "center",
-              marginY: "20px",
-            }}
+        <Box>
+          <Grid
+            container
+            spacing={6}
+            columns={{ xs: 12, sm: 4, md: 4 }}
+            sx={{ justifyContent: "center", alignItems: "center" }}
           >
-            <CircularProgress color="warning" size={60} thickness={6} />
-          </Box>
-        ) : (
-          <Box>
-            <Grid
-              container
-              spacing={6}
-              columns={{ xs: 12, sm: 4, md: 4 }}
-              sx={{ justifyContent: "center", alignItems: "center" }}
-            >
-              {cardsData.map((card) => (
-                <SingleCard key={card?.name.official} card={card} />
-              ))}
-            </Grid>
-          </Box>
-        )}
+            {data?.map((card) => (
+              <SingleCard key={card?.name?.official} card={card} />
+            ))}
+          </Grid>
+        </Box>
       </Container>
     </section>
   );
